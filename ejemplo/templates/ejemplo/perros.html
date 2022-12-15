@@ -8,11 +8,11 @@
 </head>
 <body>
 
-    <h1>Lista de mis familiares</h1>
+    <h1>Lista de los perros en esta veterinaria</h1>
 
-    {% for familiar in lista_familiares %}
+    {% for perros in lista_perros %}
         <ul>
-            <li> Nombre: {{familiar.nombre}}, Dirección: {{familiar.direccion}}, Pasaporte: {{familiar.numero_pasaporte}} </li>
+            <li> Nombre: {{perros.nombre}}, Raza: {{perros.raza}}, Edad: {{perros.edad}} </li>
         </ul>
     {% endfor %}
     

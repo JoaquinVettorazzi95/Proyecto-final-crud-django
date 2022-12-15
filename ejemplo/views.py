@@ -1,10 +1,7 @@
 from django.shortcuts import render
-from ejemplo.models import Familiar
+from ejemplo.models import Perros
 
 
-def index(request):
-    return render(request, "ejemplo/saludar.html")
-
-def monstrar_familiares(request):
-  lista_familiares = Familiar.objects.all()
-  return render(request, "ejemplo/familiares.html", {"lista_familiares": lista_familiares})
+def mostrar_perros(request):
+  lista_perros = Perros.objects.all()
+  return render(request, "ejemplo/perros.html", {"lista_perros": lista_perros})
