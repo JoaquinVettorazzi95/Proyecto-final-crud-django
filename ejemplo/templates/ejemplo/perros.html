@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'ejemplo/base.html' %}
+{% block contenido %}
+  
+  <form action="/mostrar_perros" method="post">
+    {% csrf_token %}
+    {{ form }}
+  </form>
 
-    <h1>Lista de los perros en esta veterinaria</h1>
-
-    {% for perros in lista_perros %}
+  {% for perros in lista_perros %}
         <ul>
             <li> Nombre: {{perros.nombre}}, Raza: {{perros.raza}}, Edad: {{perros.edad}} </li>
         </ul>
     {% endfor %}
-    
-</body>
-</html>
+{% endblock %}

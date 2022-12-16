@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
-  </head>
-  <body>
-      <h1>Buscar el perro por su nombre</h1>
-    
-      <form action="/mostrar_perros/buscar" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit">
-      </form>
+{% extends 'ejemplo/base.html' %}
 
-      {% for perros in lista_perros %}
-      <ul>
-          <li> Nombre: {{perros.nombre}}, Raza: {{perros.raza}}, Edad: {{perros.edad}}</li>
-      </ul>
+{% block titulo%} Buscar Familiares por nombre {% endblock %}
+{% block contenido %}
+  
+  <form action="/mostrar_perros/buscar" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+  </form>
+
+  {% for perros in lista_perros %}
+  <ul>
+      <li> Nombre: {{perros.nombre}}, Raza: {{perros.raza}}, Edad: {{perros.edad}}</li>
+  </ul>
       {% endfor %}
 
-  </body>
-  </html>
+{% endblock %}
