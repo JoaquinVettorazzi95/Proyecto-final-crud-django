@@ -27,4 +27,4 @@ Autos(marca="Subaru", modelo="A45", matricula="AA4443").save()
 Autos(marca="Jeep", modelo="Adventure", matricula="AB2342").save()
 Autos(marca="Ford", modelo="Fiesta", matricula="AX2424").save()
 
-print("Se cargo con éxito los usuarios de pruebas")
+print("Se cargo con éxito los usuarios de pruebas")gi
