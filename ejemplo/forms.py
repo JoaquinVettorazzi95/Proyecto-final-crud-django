@@ -7,9 +7,14 @@ class Buscar(forms.Form):
     nombre = forms.CharField(max_length=15)
 
 
-class Buscar(forms.Form):
+class BuscarPerros(forms.Form):
   nombre = forms.CharField(max_length=100)
 
+class BuscarPersonas(forms.Form):
+    nombre = forms.CharField(max_length=100)
+
+class BuscarAutos(forms.Form):
+    matricula = forms.CharField(max_length=100)
 
 class PerrosForm(forms.ModelForm):
   class Meta:

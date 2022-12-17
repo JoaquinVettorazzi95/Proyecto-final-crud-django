@@ -1,0 +1,18 @@
+{% extends 'ejemplo/base.html' %}
+
+{% block titulo%} Buscar autos por matricula {% endblock %}
+{% block contenido %}
+  
+  <form action="/mostrar_autos/buscar" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Buscar">
+  </form>
+
+    {% for autos in lista_autos %}
+        <ul>
+            <li> Marca: {{autos.marca}}, Modelo: {{autos.modelo}}, Matricula: {{autos.matricula}} </li>
+         </ul>
+    {% endfor %}
+
+{% endblock %}

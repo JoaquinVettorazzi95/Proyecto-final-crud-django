@@ -1,12 +1,12 @@
 {% extends 'ejemplo/base.html' %}
 
-{% block titulo%} Buscar Familiares por nombre {% endblock %}
+{% block titulo%} Buscar perros por nombre {% endblock %}
 {% block contenido %}
   
   <form action="/mostrar_perros/buscar" method="post">
     {% csrf_token %}
     {{ form }}
-    <input type="submit" value="Submit">
+    <input type="submit" value="Buscar">
   </form>
 
   {% for perros in lista_perros %}

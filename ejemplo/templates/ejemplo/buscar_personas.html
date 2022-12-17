@@ -1,0 +1,18 @@
+{% extends 'ejemplo/base.html' %}
+
+{% block titulo%} Buscar personas por nombre {% endblock %}
+{% block contenido %}
+  
+  <form action="/mostrar_personas/buscar" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Buscar">
+  </form>
+
+    {% for personas in lista_personas %}
+        <ul>
+            <li> Nombre: {{personas.nombre}}, Dirección: {{personas.sexo}}, Pasaporte: {{personas.dni}} </li>
+        </ul>
+    {% endfor %}
+
+{% endblock %}
