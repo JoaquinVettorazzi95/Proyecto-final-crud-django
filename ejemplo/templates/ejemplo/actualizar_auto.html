@@ -1,0 +1,13 @@
+{% extends 'ejemplo/base.html' %}
+{% block titulo%} Modificar auto de la base de datos {% endblock %}
+{% block contenido %}
+
+<form action="/mostrar_autos/actualizar/{{ auto.id }}" method="post"> 
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" value="Actualizar">
+</form>
+
+<h2 style="color:green">{{msg_exito}}</h2>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from ejemplo.models import Perros
 from ejemplo.models import Personas
 from ejemplo.models import Autos
@@ -135,3 +135,79 @@ class AltaAutos(View):
                                                         'msg_exito': msg_exito})
         
         return render(request, self.template_name, {"form": form})
+
+class ActualizarPerro(View):
+  form_class = PerrosForm
+  template_name = 'ejemplo/actualizar_perro.html'
+  initial = {"nombre":"", "raza":"", "edad":""}
+  
+
+  def get(self, request, pk): 
+      perro = get_object_or_404(Perros, pk=pk)
+      form = self.form_class(instance = perro)
+      return render(request, self.template_name, {'form':form,'Perros': perro})
+
+  
+  def post(self, request, pk): 
+      perro = get_object_or_404(Perros, pk=pk)
+      form = self.form_class(request.POST ,instance = perro)
+      if form.is_valid():
+          form.save()
+          msg_exito = f"se actualizó con éxito el Perro {form.cleaned_data.get('nombre')}"
+          form = self.form_class(initial=self.initial)
+          return render(request, self.template_name, {'form':form, 
+                                                      'Perro': perro,
+                                                      'msg_exito': msg_exito})
+      
+      return render(request, self.template_name, {"form": form})
+
+class ActualizarPersona(View):
+  form_class = PersonasForm
+  template_name = 'ejemplo/actualizar_persona.html'
+  initial = {"nombre":"", "sexo":"", "dni":""}
+  
+
+  def get(self, request, pk): 
+      persona = get_object_or_404(Personas, pk=pk)
+      form = self.form_class(instance = persona)
+      return render(request, self.template_name, {'form':form,'Personas': persona})
+
+  
+  def post(self, request, pk): 
+      persona = get_object_or_404(Personas, pk=pk)
+      form = self.form_class(request.POST ,instance = persona)
+      if form.is_valid():
+          form.save()
+          msg_exito = f"se actualizó con éxito los datos de la persona {form.cleaned_data.get('nombre')}"
+          form = self.form_class(initial=self.initial)
+          return render(request, self.template_name, {'form':form, 
+                                                      'Persona': persona,
+                                                      'msg_exito': msg_exito})
+      
+      return render(request, self.template_name, {"form": form})
+
+
+class ActualizarAuto(View):
+  form_class = AutosForm
+  template_name = 'ejemplo/actualizar_auto.html'
+  initial = {"marca":"", "modelo":"", "matricula":""}
+  
+
+  def get(self, request, pk): 
+      auto = get_object_or_404(Autos, pk=pk)
+      form = self.form_class(instance = auto)
+      return render(request, self.template_name, {'form':form,'Personas': auto})
+
+  
+  def post(self, request, pk): 
+      auto = get_object_or_404(Autos, pk=pk)
+      form = self.form_class(request.POST ,instance = auto)
+      if form.is_valid():
+          form.save()
+          msg_exito = f"se actualizó con éxito los datos del auto con matricula {form.cleaned_data.get('matricula')}"
+          form = self.form_class(initial=self.initial)
+          return render(request, self.template_name, {'form':form, 
+                                                      'Auto': auto,
+                                                      'msg_exito': msg_exito})
+      
+      return render(request, self.template_name, {"form": form})
