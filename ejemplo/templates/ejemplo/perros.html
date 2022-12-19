@@ -9,6 +9,7 @@
   {% for perros in lista_perros %}
         <ul>
             <li> Nombre: {{perros.nombre}}, Raza: {{perros.raza}}, Edad: {{perros.edad}} </li>
+            <a href='/mostrar_perros/actualizar/{{ perro.id }}'>Actualizar</a>
         </ul>
     {% endfor %}
 {% endblock %}
