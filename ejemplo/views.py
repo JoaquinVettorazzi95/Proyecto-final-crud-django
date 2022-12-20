@@ -4,7 +4,7 @@ from ejemplo.models import Personas
 from ejemplo.models import Autos
 from ejemplo.forms import BuscarPerros, BuscarPersonas, BuscarAutos, PerrosForm, PersonasForm, AutosForm
 from django.views import View
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, CreateView
 
 
 def mostrar_perros(request):
@@ -249,3 +249,18 @@ class AutosList(ListView):
 
 class PersonasList(ListView):
   model = Personas
+
+class PerrosCrear(CreateView):
+  model = Perros
+  success_url = "/panel_perros"
+  fields = ["nombre", "raza", "edad"]
+
+class AutosCrear(CreateView):
+  model = Autos
+  success_url = "/panel_autos"
+  fields = ["marca", "modelo", "matricula"]
+
+class PersonasCrear(CreateView):
+  model = Personas
+  success_url = "/panel_personas"
+  fields = ["nombre", "sexo", "dni"]

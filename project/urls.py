@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from ejemplo.views import (mostrar_perros, mostrar_personas, mostrar_autos, BuscarPerro, BuscarPersona , BuscarAuto, AltaPerros, AltaPersonas, AltaAutos,
-ActualizarPerro, ActualizarPersona, ActualizarAuto, BorrarPerro, BorrarPersona, BorrarAuto, PerrosList, AutosList, PersonasList)
+ActualizarPerro, ActualizarPersona, ActualizarAuto, BorrarPerro, BorrarPersona, BorrarAuto, PerrosList, AutosList, PersonasList, 
+PerrosCrear, AutosCrear, PersonasCrear)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,4 +39,7 @@ urlpatterns = [
     path('panel_perros/', PerrosList.as_view()),
     path('panel_autos/', AutosList.as_view()),
     path('panel_personas/', PersonasList.as_view()),
+    path('panel_perros/crear', PerrosCrear.as_view()),
+    path('panel_autos/crear', AutosCrear.as_view()),
+    path('panel_personas/crear', PersonasCrear.as_view()),
 ]
