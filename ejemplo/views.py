@@ -4,7 +4,7 @@ from ejemplo.models import Personas
 from ejemplo.models import Autos
 from ejemplo.forms import BuscarPerros, BuscarPersonas, BuscarAutos, PerrosForm, PersonasForm, AutosForm
 from django.views import View
-from django.views.generic import DetailView, ListView, CreateView, DeleteView
+from django.views.generic import DetailView, ListView, CreateView, DeleteView, UpdateView
 
 
 def mostrar_perros(request):
@@ -277,3 +277,17 @@ class PersonasBorrar(DeleteView):
   model = Personas
   success_url = "/panel_personas"
 
+class PerrosActualizar(UpdateView):
+  model = Perros
+  success_url = "/panel_perros"
+  fields = ["nombre", "raza", "edad"]
+
+class AutosActualizar(UpdateView):
+  model = Autos
+  success_url = "/panel_autos"
+  fields = ["marca", "modelo", "matricula"]
+
+class PersonasActualizar(UpdateView):
+  model = Personas
+  success_url = "/panel_personas"
+  fields = ["nombre", "sexo", "dni"]

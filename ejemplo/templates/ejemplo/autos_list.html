@@ -12,7 +12,7 @@
 {% block buscar %} {% endblock %}
 
 {% for autos in object_list %}
-    <li>{{autos}}</li>
+    <li>{{autos.id}}-- {{autos}}</li>
 {% endfor %}    
 </ul>
 

@@ -12,7 +12,7 @@
 {% block buscar %} {% endblock %}
 
 {% for perro in object_list %}
-    <li>{{perro}}</li>
+    <li>{{perro.id}}-- {{perro}}</li>
 {% endfor %}    
 </ul>
 

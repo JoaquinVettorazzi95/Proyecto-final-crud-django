@@ -11,6 +11,7 @@
     <form method="post">
         {% csrf_token %}
         "¿ Estás seguro de borrar el perro {{ object }} ?"
+        <a href= "/panel_autos" type="button">NO</a>
         <input type="submit" value="SI">
     </form>
 

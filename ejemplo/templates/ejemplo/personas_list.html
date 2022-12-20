@@ -12,7 +12,7 @@
 {% block buscar %} {% endblock %}
 
 {% for personas in object_list %}
-    <li>{{personas}}</li>
+    <li>{{personas.id}}-- {{personas}}</li>
 {% endfor %}    
 </ul>
 

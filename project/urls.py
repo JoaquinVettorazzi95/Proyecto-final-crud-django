@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from ejemplo.views import (mostrar_perros, mostrar_personas, mostrar_autos, BuscarPerro, BuscarPersona , BuscarAuto, AltaPerros, AltaPersonas, AltaAutos,
 ActualizarPerro, ActualizarPersona, ActualizarAuto, BorrarPerro, BorrarPersona, BorrarAuto, PerrosList, AutosList, PersonasList, PerrosBorrar, 
-PerrosCrear, AutosCrear, PersonasCrear, AutosBorrar, PersonasBorrar)
+PerrosCrear, AutosCrear, PersonasCrear, AutosBorrar, PersonasBorrar, PerrosActualizar, AutosActualizar, PersonasActualizar)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -45,4 +45,7 @@ urlpatterns = [
     path('panel_perros/<int:pk>/borrar', PerrosBorrar.as_view()),
     path('panel_autos/<int:pk>/borrar', AutosBorrar.as_view()),
     path('panel_personas/<int:pk>/borrar', PersonasBorrar.as_view()),
+    path('panel_perros/<int:pk>/actualizar', PerrosActualizar.as_view()),
+    path('panel_autos/<int:pk>/actualizar', AutosActualizar.as_view()),
+    path('panel_personas/<int:pk>/actualizar', PersonasActualizar.as_view()),
 ]
