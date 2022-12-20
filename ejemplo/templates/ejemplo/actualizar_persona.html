@@ -2,7 +2,7 @@
 {% block titulo%} Modificar Persona de la base de datos {% endblock %}
 {% block contenido %}
 
-<form action="/mostrar_personas/actualizar/{{ Persona.id }}" method="post"> 
+<form action="/mostrar_personas/actualizar/{{ persona.id }}" method="post"> 
     {% csrf_token %}
     {{ form.as_p}}
     <input type="submit" value="Actualizar">

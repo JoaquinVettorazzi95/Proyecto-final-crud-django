@@ -145,7 +145,7 @@ class ActualizarPerro(View):
   def get(self, request, pk): 
       perro = get_object_or_404(Perros, pk=pk)
       form = self.form_class(instance = perro)
-      return render(request, self.template_name, {'form':form,'Perros': perro})
+      return render(request, self.template_name, {'form':form,'perro': perro})
 
   
   def post(self, request, pk): 
@@ -165,12 +165,11 @@ class ActualizarPersona(View):
   form_class = PersonasForm
   template_name = 'ejemplo/actualizar_persona.html'
   initial = {"nombre":"", "sexo":"", "dni":""}
-  
 
   def get(self, request, pk): 
       persona = get_object_or_404(Personas, pk=pk)
       form = self.form_class(instance = persona)
-      return render(request, self.template_name, {'form':form,'Personas': persona})
+      return render(request, self.template_name, {'form':form,'persona': persona})
 
   
   def post(self, request, pk): 
@@ -178,10 +177,10 @@ class ActualizarPersona(View):
       form = self.form_class(request.POST ,instance = persona)
       if form.is_valid():
           form.save()
-          msg_exito = f"se actualizó con éxito los datos de la persona {form.cleaned_data.get('nombre')}"
+          msg_exito = f"se actualizó con éxito los datos de {form.cleaned_data.get('nombre')}"
           form = self.form_class(initial=self.initial)
           return render(request, self.template_name, {'form':form, 
-                                                      'Persona': persona,
+                                                      'persona': persona,
                                                       'msg_exito': msg_exito})
       
       return render(request, self.template_name, {"form": form})
@@ -191,12 +190,11 @@ class ActualizarAuto(View):
   form_class = AutosForm
   template_name = 'ejemplo/actualizar_auto.html'
   initial = {"marca":"", "modelo":"", "matricula":""}
-  
 
   def get(self, request, pk): 
       auto = get_object_or_404(Autos, pk=pk)
       form = self.form_class(instance = auto)
-      return render(request, self.template_name, {'form':form,'Personas': auto})
+      return render(request, self.template_name, {'form':form,'auto': auto})
 
   
   def post(self, request, pk): 
@@ -211,3 +209,35 @@ class ActualizarAuto(View):
                                                       'msg_exito': msg_exito})
       
       return render(request, self.template_name, {"form": form})
+
+
+class BorrarPerro(View):
+  template_name = 'ejemplo/perros.html'
+
+  def get(self, request, pk): 
+      perro = get_object_or_404(Perros, pk=pk)
+      perro.delete()
+      perros = Perros.objects.all()
+      return render(request, self.template_name, {'lista_perros': perros})
+
+class BorrarPersona(View):
+  template_name = 'ejemplo/personas.html'
+
+  def get(self, request, pk): 
+      persona = get_object_or_404(Personas, pk=pk)
+      persona.delete()
+      personas = Personas.objects.all()
+      return render(request, self.template_name, {'lista_personas': personas})
+
+
+class BorrarAuto(View):
+  template_name = 'ejemplo/autos.html'
+
+  def get(self, request, pk): 
+      auto = get_object_or_404(Autos, pk=pk)
+      auto.delete()
+      autos = Autos.objects.all()
+      return render(request, self.template_name, {'lista_autos': autos})
+
+
+    
