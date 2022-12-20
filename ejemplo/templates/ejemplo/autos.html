@@ -14,7 +14,7 @@
     {% for autos in lista_autos %}
         <ul>
             <li> Marca: {{autos.marca}}, Modelo: {{autos.modelo}}, Matricula: {{autos.matricula}} </li>
-            <a href='/mostrar_autos/actualizar/{{ auto.id }}'>Actualizar</a>
+            <a href='/mostrar_autos/actualizar/{{ autos.id }}'>Actualizar</a>
             <a href='/mostrar_autos/borrar/{{ autos.id }}'>Borrar</a>
            
         </ul>

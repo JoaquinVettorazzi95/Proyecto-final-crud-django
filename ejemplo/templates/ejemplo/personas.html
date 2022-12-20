@@ -13,7 +13,7 @@
     {% for personas in lista_personas %}
         <ul>
             <li> Nombre: {{personas.nombre}}, Dirección: {{personas.sexo}}, Pasaporte: {{personas.dni}} </li>
-            <a href='/mostrar_personas/actualizar{{ personas.id }}'>Actualizar</a>
+            <a href='/mostrar_personas/actualizar/{{ personas.id }}'>Actualizar</a>
             <a href='/mostrar_personas/borrar/{{ personas.id }}'>Borrar</a>
         </ul>
     {% endfor %}
