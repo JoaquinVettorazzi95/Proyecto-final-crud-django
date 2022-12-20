@@ -4,6 +4,7 @@ from ejemplo.models import Personas
 from ejemplo.models import Autos
 from ejemplo.forms import BuscarPerros, BuscarPersonas, BuscarAutos, PerrosForm, PersonasForm, AutosForm
 from django.views import View
+from django.views.generic import DetailView, ListView
 
 
 def mostrar_perros(request):
@@ -240,4 +241,11 @@ class BorrarAuto(View):
       return render(request, self.template_name, {'lista_autos': autos})
 
 
-    
+class PerrosList(ListView):
+  model = Perros
+
+class AutosList(ListView):
+  model = Autos
+
+class PersonasList(ListView):
+  model = Personas
