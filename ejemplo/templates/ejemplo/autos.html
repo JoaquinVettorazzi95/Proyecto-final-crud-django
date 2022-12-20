@@ -2,14 +2,19 @@
 {% extends 'ejemplo/base.html' %}
 
 {% block contenido %}
+
+
   
   <form action="/mostrar_autos" method="post">
     {% csrf_token %}
     {{ form }}
-
+    
     <h1>Lista de autos que ingresan</h1>
 
+    <a href="/mostrar_autos/alta"> Agregar Nuevo Auto</a>
+
   </form>
+
 
     {% for autos in lista_autos %}
         <ul>

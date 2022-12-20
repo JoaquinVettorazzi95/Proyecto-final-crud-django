@@ -5,6 +5,8 @@
     {% csrf_token %}
     {{ form }}
   </form>
+ 
+  <a href="/mostrar_perros/alta"> Agregar Nuevo Perro</a>
 
   {% for perros in lista_perros %}
         <ul>
