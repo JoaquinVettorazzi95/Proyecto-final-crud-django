@@ -18,6 +18,7 @@ from django.urls import path
 from ejemplo.views import (mostrar_perros, mostrar_personas, mostrar_autos, BuscarPerro, BuscarPersona , BuscarAuto, AltaPerros, AltaPersonas, AltaAutos,
 ActualizarPerro, ActualizarPersona, ActualizarAuto, BorrarPerro, BorrarPersona, BorrarAuto, PerrosList, AutosList, PersonasList, PerrosBorrar, 
 PerrosCrear, AutosCrear, PersonasCrear, AutosBorrar, PersonasBorrar, PerrosActualizar, AutosActualizar, PersonasActualizar)
+from ejemplo_dos.views import index, PostList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -48,4 +49,7 @@ urlpatterns = [
     path('panel_perros/<int:pk>/actualizar', PerrosActualizar.as_view()),
     path('panel_autos/<int:pk>/actualizar', AutosActualizar.as_view()),
     path('panel_personas/<int:pk>/actualizar', PersonasActualizar.as_view()),
+    path('ejemplo-dos/',index),
+    path('ejemplo-dos/listar/', PostList.as_view()
+    ),
 ]
