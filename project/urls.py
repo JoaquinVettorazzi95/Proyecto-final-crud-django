@@ -49,7 +49,7 @@ urlpatterns = [
     path('panel_perros/<int:pk>/actualizar', PerrosActualizar.as_view()),
     path('panel_autos/<int:pk>/actualizar', AutosActualizar.as_view()),
     path('panel_personas/<int:pk>/actualizar', PersonasActualizar.as_view()),
-    path('ejemplo-dos/',index),
-    path('ejemplo-dos/listar/', PostList.as_view()),
-    path('ejemplo-dos/crear/', PostCrear.as_view()),
+    path('ejemplo-dos/',index, name='ejemplo-dos-index'),
+    path('ejemplo-dos/listar/', PostList.as_view(),name='ejemplo-dos-listar'),
+    path('ejemplo-dos/crear/', PostCrear.as_view(),name='ejemplo-dos-crear'),
 ]
