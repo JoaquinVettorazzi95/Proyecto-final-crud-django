@@ -18,7 +18,7 @@ from django.urls import path
 from ejemplo.views import (mostrar_perros, mostrar_personas, mostrar_autos, BuscarPerro, BuscarPersona , BuscarAuto, AltaPerros, AltaPersonas, AltaAutos,
 ActualizarPerro, ActualizarPersona, ActualizarAuto, BorrarPerro, BorrarPersona, BorrarAuto, PerrosList, AutosList, PersonasList, PerrosBorrar, 
 PerrosCrear, AutosCrear, PersonasCrear, AutosBorrar, PersonasBorrar, PerrosActualizar, AutosActualizar, PersonasActualizar)
-from ejemplo_dos.views import index,PostCrear, PostDetalle, PostListar, PostBorrar, PostActualizar
+from ejemplo_dos.views import (index,PostCrear, PostDetalle, PostListar, PostBorrar, PostActualizar, UserSignUp)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -55,4 +55,5 @@ urlpatterns = [
     path('ejemplo-dos/listar/', PostListar.as_view(), name="ejemplo-dos-listar"),
     path('ejemplo-dos/<int:pk>/borrar/', PostBorrar.as_view(), name="ejemplo-dos-borrar"),
     path('ejemplo-dos/<int:pk>/actualizar/', PostActualizar.as_view(), name="ejemplo-dos-actualizar"),
+    path('ejemplo-dos/signup/', UserSignUp.as_view(), name ="ejemplo-dos-signup"),
 ]
