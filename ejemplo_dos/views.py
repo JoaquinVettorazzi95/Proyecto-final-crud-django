@@ -9,7 +9,7 @@ from ejemplo_dos.forms import UsuarioForm
 def index(request):
     return render(request, "ejemplo_dos/index.html", {})
 
-class PostDetalle(ListView):
+class PostDetalle(DetailView):
     model= Post
 
 class PostListar(ListView):
