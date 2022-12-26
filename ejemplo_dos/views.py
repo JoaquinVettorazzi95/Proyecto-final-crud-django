@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from ejemplo_dos.models import Post
 from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from ejemplo_dos.forms import UsuarioForm
-
 
 
 def index(request):
@@ -15,16 +16,16 @@ class PostDetalle(DetailView):
 class PostListar(ListView):
     model = Post  
     
-class PostCrear(CreateView):
+class PostCrear(LoginRequiredMixin, CreateView):
     model= Post
     success_url = reverse_lazy("ejemplo-dos-listar")
     fields = '__all__'
 
-class PostBorrar(DeleteView):
+class PostBorrar(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = reverse_lazy("ejemplo-dos-listar")
 
-class PostActualizar(UpdateView):
+class PostActualizar(LoginRequiredMixin, UpdateView):
     model = Post
     success_url = reverse_lazy("ejemplo-dos-listar")
     fields = "__all__"
@@ -35,3 +36,8 @@ class UserSignUp(CreateView):
     success_url = reverse_lazy('ejemplo-dos-listar')
 
 
+class UserLogin(LoginView):
+    next_page = reverse_lazy('ejemplo-dos-listar')
+
+class UserLogout(LogoutView):
+    next_page = reverse_lazy('ejemplo-dos-listar')

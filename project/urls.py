@@ -18,7 +18,11 @@ from django.urls import path
 from ejemplo.views import (mostrar_perros, mostrar_personas, mostrar_autos, BuscarPerro, BuscarPersona , BuscarAuto, AltaPerros, AltaPersonas, AltaAutos,
 ActualizarPerro, ActualizarPersona, ActualizarAuto, BorrarPerro, BorrarPersona, BorrarAuto, PerrosList, AutosList, PersonasList, PerrosBorrar, 
 PerrosCrear, AutosCrear, PersonasCrear, AutosBorrar, PersonasBorrar, PerrosActualizar, AutosActualizar, PersonasActualizar)
-from ejemplo_dos.views import (index,PostCrear, PostDetalle, PostListar, PostBorrar, PostActualizar, UserSignUp)
+from ejemplo_dos.views import (index,PostCrear, PostDetalle, PostListar, PostBorrar, PostActualizar, UserSignUp, UserLogin, UserLogout)
+from django.contrib.admin.views.decorators import staff_member_required
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -50,10 +54,12 @@ urlpatterns = [
     path('panel_autos/<int:pk>/actualizar', AutosActualizar.as_view()),
     path('panel_personas/<int:pk>/actualizar', PersonasActualizar.as_view()),
     path('ejemplo-dos/',index, name='ejemplo-dos-index'),
-    path('ejemplo-dos/crear/', PostCrear.as_view(),name='ejemplo-dos-crear'),
+    path('ejemplo-dos/crear/',staff_member_required (PostCrear.as_view()),name='ejemplo-dos-crear'),
     path('ejemplo-dos/<int:pk>/detalle/', PostDetalle.as_view(), name="ejemplo-dos-detalle"),
     path('ejemplo-dos/listar/', PostListar.as_view(), name="ejemplo-dos-listar"),
-    path('ejemplo-dos/<int:pk>/borrar/', PostBorrar.as_view(), name="ejemplo-dos-borrar"),
-    path('ejemplo-dos/<int:pk>/actualizar/', PostActualizar.as_view(), name="ejemplo-dos-actualizar"),
+    path('ejemplo-dos/<int:pk>/borrar/', staff_member_required(PostBorrar.as_view()), name="ejemplo-dos-borrar"),
+    path('ejemplo-dos/<int:pk>/actualizar/', staff_member_required(PostActualizar.as_view()), name="ejemplo-dos-actualizar"),
     path('ejemplo-dos/signup/', UserSignUp.as_view(), name ="ejemplo-dos-signup"),
+    path('ejemplo-dos/login/', UserLogin.as_view(), name= "ejemplo-dos-login"),
+    path('ejemplo-dos/logout/', UserLogout.as_view(), name="ejemplo-dos-logout"),
 ]
