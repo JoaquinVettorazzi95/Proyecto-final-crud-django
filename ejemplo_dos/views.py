@@ -5,11 +5,12 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from ejemplo_dos.forms import UsuarioForm
-from ejemplo_dos.models import Avatar
+from ejemplo_dos.models import Avatar, Post
 
 
 def index(request):
-    return render(request, "ejemplo_dos/index.html", {})
+    posts = Post.objects.order_by("-publicado_el").all()
+    return render(request, "ejemplo_dos/index.html", {"posts": posts})
 
 class PostDetalle(DetailView):
     model= Post
