@@ -28,7 +28,9 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-mensajes-crear' %}">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+
                         <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-signup' %}">Registrarse</a></li>
                         {% if user.is_authenticated %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-listar' %}">Admin Blog</a></li>
@@ -45,8 +47,8 @@
         <header class="py-5 bg-light border-bottom mb-4">
             <div class="container">
                 <div class="text-center my-5">
-                    <h1 class="fw-bolder">Welcome to Blog Home!</h1>
-                    <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+                    <h1 class="fw-bolder">Bienvenido al mejor blog de Futbol Uruguayo!</h1>
+                    <p class="lead mb-0">Aqui encontraras toda la informacion relevante a este depoorte en Uruguay</p>
                 </div>
             </div>
         </header>

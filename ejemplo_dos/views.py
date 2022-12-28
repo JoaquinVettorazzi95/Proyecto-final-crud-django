@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from ejemplo_dos.forms import UsuarioForm
-from ejemplo_dos.models import Avatar, Post
+from ejemplo_dos.models import Avatar, Post, Mensaje
 from django.contrib.auth.admin import User
 
 
