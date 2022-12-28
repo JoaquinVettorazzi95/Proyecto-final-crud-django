@@ -21,7 +21,7 @@ from django.urls import path
 from ejemplo.views import (mostrar_perros, mostrar_personas, mostrar_autos, BuscarPerro, BuscarPersona , BuscarAuto, AltaPerros, AltaPersonas, AltaAutos,
 ActualizarPerro, ActualizarPersona, ActualizarAuto, BorrarPerro, BorrarPersona, BorrarAuto, PerrosList, AutosList, PersonasList, PerrosBorrar, 
 PerrosCrear, AutosCrear, PersonasCrear, AutosBorrar, PersonasBorrar, PerrosActualizar, AutosActualizar, PersonasActualizar)
-from ejemplo_dos.views import (index,PostCrear, PostDetalle, PostListar, PostBorrar, PostActualizar, UserSignUp, UserLogin, UserLogout, AvatarActualizar)
+from ejemplo_dos.views import (index,PostCrear, PostDetalle, PostListar, PostBorrar, PostActualizar, UserSignUp, UserLogin, UserLogout, AvatarActualizar, UserActualizar)
 from django.contrib.admin.views.decorators import staff_member_required
 
 
@@ -66,6 +66,7 @@ urlpatterns = [
     path('ejemplo-dos/signup/', UserSignUp.as_view(), name ="ejemplo-dos-signup"),
     path('ejemplo-dos/login/', UserLogin.as_view(), name= "ejemplo-dos-login"),
     path('ejemplo-dos/logout/', UserLogout.as_view(), name="ejemplo-dos-logout"),
+    path('ejemplo-dos/users/<int:pk>/actualizar/', UserActualizar.as_view(), name="ejemplo-dos-users-actualizar"),
     path('ejemplo-dos/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name="ejemplo-dos-avatars-actualizar"),
 ]
 
