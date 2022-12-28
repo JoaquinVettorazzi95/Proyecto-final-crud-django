@@ -13,13 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from ejemplo.views import (mostrar_perros, mostrar_personas, mostrar_autos, BuscarPerro, BuscarPersona , BuscarAuto, AltaPerros, AltaPersonas, AltaAutos,
 ActualizarPerro, ActualizarPersona, ActualizarAuto, BorrarPerro, BorrarPersona, BorrarAuto, PerrosList, AutosList, PersonasList, PerrosBorrar, 
-PerrosCrear, AutosCrear, PersonasCrear, AutosBorrar, PersonasBorrar, PerrosActualizar, AutosActualizar, PersonasActualizar)
+PerrosCrear, AutosCrear, PersonasCrear, AutosBorrar, PersonasBorrar, PerrosActualizar, AutosActualizar, PersonasActualizar, AvatarActualizar)
 from ejemplo_dos.views import (index,PostCrear, PostDetalle, PostListar, PostBorrar, PostActualizar, UserSignUp, UserLogin, UserLogout)
 from django.contrib.admin.views.decorators import staff_member_required
+
 
 
 
@@ -62,4 +66,9 @@ urlpatterns = [
     path('ejemplo-dos/signup/', UserSignUp.as_view(), name ="ejemplo-dos-signup"),
     path('ejemplo-dos/login/', UserLogin.as_view(), name= "ejemplo-dos-login"),
     path('ejemplo-dos/logout/', UserLogout.as_view(), name="ejemplo-dos-logout"),
+    path('ejemplo-dos/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name="ejemplo-dos-avatars-actualizar")
 ]
+
+
+
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from ejemplo_dos.forms import UsuarioForm
+from ejemplo_dos.models import Avatar
 
 
 def index(request):
@@ -41,3 +42,8 @@ class UserLogin(LoginView):
 
 class UserLogout(LogoutView):
     next_page = reverse_lazy('ejemplo-dos-listar')
+
+class AvatarActualizar(UpdateView):
+    model = Avatar
+    fields = ['imagen']
+    success_url = reverse_lazy('ejemplo-dos-listar')
