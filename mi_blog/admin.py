@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ejemplo_dos.models import Avatar
+from mi_blog.models import Avatar
 
 admin.site.register(Avatar)
 

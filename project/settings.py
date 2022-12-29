@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ejemplo.apps.EjemploConfig',
-    'ejemplo_dos.apps.EjemploDosConfig',
+    'mi_blog.apps.MiBlogConfig',
 ]
 
 
@@ -126,7 +126,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = 'ejemplo-dos-login'
+LOGIN_URL = 'mi-blog-login'
 
 
 

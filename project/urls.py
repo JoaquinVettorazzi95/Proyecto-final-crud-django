@@ -21,7 +21,7 @@ from django.urls import path
 from ejemplo.views import (mostrar_perros, mostrar_personas, mostrar_autos, BuscarPerro, BuscarPersona , BuscarAuto, AltaPerros, AltaPersonas, AltaAutos,
 ActualizarPerro, ActualizarPersona, ActualizarAuto, BorrarPerro, BorrarPersona, BorrarAuto, PerrosList, AutosList, PersonasList, PerrosBorrar, 
 PerrosCrear, AutosCrear, PersonasCrear, AutosBorrar, PersonasBorrar, PerrosActualizar, AutosActualizar, PersonasActualizar)
-from ejemplo_dos.views import (index,PostCrear, PostDetalle, PostListar, PostBorrar, PostActualizar, UserSignUp, UserLogin, 
+from mi_blog.views import (index,PostCrear, PostDetalle, PostListar, PostBorrar, PostActualizar, UserSignUp, UserLogin, 
 UserLogout, AvatarActualizar, UserActualizar, MensajeBorrar, MensajeCrear, MensajeDetalle, MensajeListar)
 from django.contrib.admin.views.decorators import staff_member_required
 
@@ -58,21 +58,21 @@ urlpatterns = [
     path('panel_perros/<int:pk>/actualizar', PerrosActualizar.as_view()),
     path('panel_autos/<int:pk>/actualizar', AutosActualizar.as_view()),
     path('panel_personas/<int:pk>/actualizar', PersonasActualizar.as_view()),
-    path('ejemplo-dos/',index, name='ejemplo-dos-index'),
-    path('ejemplo-dos/crear/',staff_member_required (PostCrear.as_view()),name='ejemplo-dos-crear'),
-    path('ejemplo-dos/<int:pk>/detalle/', PostDetalle.as_view(), name="ejemplo-dos-detalle"),
-    path('ejemplo-dos/listar/', PostListar.as_view(), name="ejemplo-dos-listar"),
-    path('ejemplo-dos/<int:pk>/borrar/', staff_member_required(PostBorrar.as_view()), name="ejemplo-dos-borrar"),
-    path('ejemplo-dos/<int:pk>/actualizar/', staff_member_required(PostActualizar.as_view()), name="ejemplo-dos-actualizar"),
-    path('ejemplo-dos/signup/', UserSignUp.as_view(), name ="ejemplo-dos-signup"),
-    path('ejemplo-dos/login/', UserLogin.as_view(), name= "ejemplo-dos-login"),
-    path('ejemplo-dos/logout/', UserLogout.as_view(), name="ejemplo-dos-logout"),
-    path('ejemplo-dos/users/<int:pk>/actualizar/', UserActualizar.as_view(), name="ejemplo-dos-users-actualizar"),
-    path('ejemplo-dos/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name="ejemplo-dos-avatars-actualizar"),
-    path('ejemplo-dos/mensajes/<int:pk>/borrar/', MensajeBorrar.as_view(), name="ejemplo-dos-mensajes-borrar"),
-    path('ejemplo-dos/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name="ejemplo-dos-mensajes-detalle"),
-    path('ejemplo-dos/mensajes/listar/', MensajeListar.as_view(), name="ejemplo-dos-mensajes-listar"),
-    path('ejemplo-dos/mensajes/crear/', MensajeCrear.as_view(), name="ejemplo-dos-mensajes-crear"),
+    path('mi-blog/',index, name='mi-blog-index'),
+    path('mi-blog/crear/',staff_member_required (PostCrear.as_view()),name='mi-blog-crear'),
+    path('mi-blog/<int:pk>/detalle/', PostDetalle.as_view(), name="mi-blog-detalle"),
+    path('mi-blog/listar/', PostListar.as_view(), name="mi-blog-listar"),
+    path('mi-blog/<int:pk>/borrar/', staff_member_required(PostBorrar.as_view()), name="mi-blog-borrar"),
+    path('mi-blog/<int:pk>/actualizar/', staff_member_required(PostActualizar.as_view()), name="mi-blog-actualizar"),
+    path('mi-blog/signup/', UserSignUp.as_view(), name ="mi-blog-signup"),
+    path('mi-blog/login/', UserLogin.as_view(), name= "mi-blog-login"),
+    path('mi-blog/logout/', UserLogout.as_view(), name="mi-blog-logout"),
+    path('mi-blog/users/<int:pk>/actualizar/', UserActualizar.as_view(), name="mi-blog-users-actualizar"),
+    path('mi-blog/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name="mi-blog-avatars-actualizar"),
+    path('mi-blog/mensajes/<int:pk>/borrar/', MensajeBorrar.as_view(), name="mi-blog-mensajes-borrar"),
+    path('mi-blog/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name="mi-blog-mensajes-detalle"),
+    path('mi-blog/mensajes/listar/', MensajeListar.as_view(), name="mi-blog-mensajes-listar"),
+    path('mi-blog/mensajes/crear/', MensajeCrear.as_view(), name="mi-blog-mensajes-crear"),
 ]
 
 

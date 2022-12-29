@@ -10,13 +10,13 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'ejemplo_dos/CSS/styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'mi_blog/CSS/styles.css' %}" rel="stylesheet" />
     </head>
     <body>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'ejemplo-dos-index' %}">
+                <a class="navbar-brand" href="{% url 'mi-blog-index' %}">
                     <img height="64" src="{{user.avatar.imagen.url}}">
                     {%if user.is_authenticated %}
                     Hola, {{user.first_name}}
@@ -28,15 +28,15 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-mensajes-crear' %}">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'mi-blog-mensajes-crear' %}">Contacto</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
 
-                        <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-signup' %}">Registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'mi-blog-signup' %}">Registrarse</a></li>
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-listar' %}">Admin Blog</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-logout' %}">Salir</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'mi-blog-listar' %}">Admin Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'mi-blog-logout' %}">Salir</a></li>
                         {% else %}
-                            <li class="nav-item"><a class="nav-link" href="{% url 'ejemplo-dos-login' %}">Ingresar</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'mi-blog-login' %}">Ingresar</a></li>
                         {% endif %}
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
                     </ul>
