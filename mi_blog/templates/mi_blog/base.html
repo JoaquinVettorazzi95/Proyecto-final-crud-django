@@ -19,7 +19,6 @@
                 <a class="navbar-brand" href="{% url 'mi-blog-index' %}">
                     {%if user.is_authenticated  and  user.avatar.imagen %}
                     <img height="64" src="{{user.avatar.imagen.url}}">
-                    
                     Hola, {{user.first_name}}
                     {% endif %}
                     Bienvenido!
