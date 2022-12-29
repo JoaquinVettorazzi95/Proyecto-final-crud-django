@@ -17,8 +17,9 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'mi-blog-index' %}">
+                    {%if user.is_authenticated  and  user.avatar.imagen %}
                     <img height="64" src="{{user.avatar.imagen.url}}">
-                    {%if user.is_authenticated %}
+                    
                     Hola, {{user.first_name}}
                     {% endif %}
                     Bienvenido!
