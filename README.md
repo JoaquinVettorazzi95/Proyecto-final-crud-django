@@ -2,19 +2,24 @@ Sitio web realizado con DJango
 
 Primero, corremos el proyecto utilizando python manage.py runserver, desde la terminal Bash.
 
-Luego ingresa en el navegador : localhost:8000
+Luego ingresamos en el navegador : localhost:8000
 
-Se pueden ingresar nuevos registros para los 3 tipos de datos:
+Una vez en el blog, podemos Registrarnos, haciendo click en la opción "Registrarme" en la barra de arriba. Para registrarnos necesitaremos:
+                1) Nombre de Usuario (debe ser único)
+                2) Contraseña con los siguientes requisitos: no puede asemejarse tanto a su otra información personal. debe contener al menos 8 caracteres, no puede ser una clave utilizada comúnmente, no puede ser completamente numérica.
 
-- Perosonas (localhost:8000/mostrar_personas/alta), Perros (localhost:8000/mostrar_perros/alta), Autos (localhost:8000/mostrar_autos/alta).
-    Se completan cada uno de los campos con los datos que se quieren crear y presionamos el botón "Ingresar". De esta forma quedarán ingresados en nuestra base de datos.
+Si la persona ya tiene un usuario creado, debe hacer click en la opción "Ingresar". El sistema le pedirá su usuario y contraseña.
 
-Si corremos en el navegador: 
-    -localhost:8000/mostrar_personas, veremos toda nuestra base de datos de personas, y el nuevo registro al final.
-    -localhost:8000/mostrar_perros, veremos toda nuestra base de datos de perros, y el nuevo registro al final.
-    -localhost:8000/mostrar_autos, veremos toda nuestra base de datos de autos, y el nuevo registro al final.
+Al ingresar, el usuario podrá acceder a las varias funciones haciendo click en "Admin Blog". Dentro de las opciones disponibles, podrá acceder a: 
+                1) Crear nuevo post
+                2) Actualizar usuario
+                3)Actualizar Avatars
+                4) Ver los mensajes recibidos
+                5) Podra ver en detalle cada uno de los blog-post publicados.
 
-Si ingresamos al navegador (localhost:8000/mostrar_perros/buscar), completamos el campo con el nombre del Perro y hacemos click en "Buscar", podremos buscar el perro en nuestra base de datos. De la misma forma se puede proceder con Personas (buscando por su nombre) y autos (buscando por su matricula)
+Quienes tengan la potestad de Superadministrador, ademas de las funciones anteriores, podrán actualizar y borrar posts. 
+
+
 
 
 

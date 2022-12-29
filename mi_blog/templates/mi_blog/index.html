@@ -62,7 +62,7 @@
                         <!-- Blog post-->
                         <div class="card mb-4">
                             {% if posts.4 %}
-                            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                            <a href="#!"><img class="card-img-top" src="{{posts.4.imagen.url}}" alt="..." /></a>
                             <div class="card-body">
                                 <div class="small text-muted">{{posts.4.publicado_el}}</div>
                                 <h2 class="card-title">{{posts.4.titulo}}</h2>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="card mb-4">
                             {% if posts.5 %}
-                            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                            <a href="#!"><img class="card-img-top" src="{{posts.5.imagen.url}}" alt="..." /></a>
                             <div class="card-body">
                                 <div class="small text-muted">{{posts.5.publicado_el}}</div>
                                 <h2 class="card-title">{{posts.5.titulo}}</h2>
